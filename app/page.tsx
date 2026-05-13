@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 const UZBEKISTAN_UNIS = [
   'Tashkent State Medical Academy',
@@ -14,6 +15,17 @@ const KAZAKHSTAN_UNIS = [
   'Semey Medical University',
   'Astana Medical University',
 ];
+const KYRGYZSTAN_UNIS = [
+  'Osh State University',
+  'Kyrgyz National University',
+  'Kyrgyz National Agrarian University',
+  'Kyrgyz State Medical Academy',
+  'Jalal-Abad State University',
+  'International University of Kyrgyzstan',
+  'Royal Metropolitan Medical University',
+  'International Higher School of Medicine',
+  'International University of Science and Medicine',
+];
 
 function ContactSection() {
   const [form, setForm] = useState({
@@ -26,8 +38,10 @@ function ContactSection() {
     ? UZBEKISTAN_UNIS
     : form.country === 'Kazakhstan'
     ? KAZAKHSTAN_UNIS
-    : form.country === 'Both'
-    ? [...UZBEKISTAN_UNIS, ...KAZAKHSTAN_UNIS]
+    : form.country === 'Kyrgyzstan'
+    ? KYRGYZSTAN_UNIS
+    : form.country === 'Multiple'
+    ? [...UZBEKISTAN_UNIS, ...KAZAKHSTAN_UNIS, ...KYRGYZSTAN_UNIS]
     : [];
 
   const validate = () => {
@@ -201,7 +215,8 @@ function ContactSection() {
                       <option value="">— Select —</option>
                       <option>Uzbekistan</option>
                       <option>Kazakhstan</option>
-                      <option>Both</option>
+                      <option>Kyrgyzstan</option>
+                      <option>Multiple</option>
                     </select>
                   </div>
                   <div className="cform__field">
@@ -259,6 +274,7 @@ const BRAND_FULL = 'Oxford International Education Group';
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [waOpen, setWaOpen] = useState(false);
   const dotsRef = useRef<SVGGElement>(null);
 
   useEffect(() => {
@@ -321,8 +337,7 @@ export default function Home() {
       <header className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
         <div className="container nav__inner">
           <a href="#" className="logo" aria-label={BRAND_FULL}>
-            <span className="logo__mark">O</span>
-            <span>Oxford Int&apos;l Edu</span>
+            <Image src="/logo.png" alt="Oxford International Education Group" width={128} height={128} className="logo__img" />
           </a>
           <nav className="nav__links" aria-label="Primary">
             <a href="#services">Services</a>
@@ -345,8 +360,7 @@ export default function Home() {
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
         <div className="mobile-menu__head">
           <a href="#" className="logo" onClick={() => setMenuOpen(false)}>
-            <span className="logo__mark">O</span>
-            <span>Oxford Int&apos;l Edu</span>
+            <Image src="/logo.png" alt="Oxford International Education Group" width={128} height={128} className="logo__img" />
           </a>
           <button className="mobile-menu__close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
             ✕
@@ -405,7 +419,7 @@ export default function Home() {
                 <span className="trust__lbl">Students enrolled</span>
               </div>
               <div className="trust__stat">
-                <span className="trust__num">8</span>
+                <span className="trust__num">17</span>
                 <span className="trust__lbl">Partner universities</span>
               </div>
               <div className="trust__stat">
@@ -486,7 +500,7 @@ export default function Home() {
         <div className="container">
           <div className="heading-block heading-block--center">
             <span className="eyebrow">Our Partner Universities</span>
-            <h2 className="h-section">8 Government Medical Universities.<br/>Two Countries. One Trusted Partner.</h2>
+            <h2 className="h-section">17 Medical Universities.<br/>Three Countries. One Trusted Partner.</h2>
             <p className="lede" style={{ textAlign: 'center' }}>
               Every university below is government-run, WHO-listed, and recognised by NMC (India) &amp; PMC (Pakistan).
               All MBBS programmes are taught in English with zero donation fees.
@@ -743,6 +757,261 @@ export default function Home() {
             </article>
 
           </div>
+
+          {/* ── Kyrgyzstan ── */}
+          <div className="uni-country-head" style={{ marginTop: 56 }}>
+            <span className="uni-flag">🇰🇬</span>
+            <div>
+              <div className="uni-country-name">Kyrgyzstan</div>
+              <div className="uni-country-sub">9 Medical Universities · English Medium · From $3,000/yr</div>
+            </div>
+          </div>
+          <div className="uni-grid" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+
+            <article className="uni-card uni-card--featured">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge uni-badge--govt">Government</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Osh State University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">1992</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$4,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹23.4 Lacs</span></div>
+              </div>
+              <p className="uni-card__desc">
+                One of the largest government universities in Kyrgyzstan, located in Osh city. Renowned for its Faculty of Medicine offering a 6-year MBBS programme fully in English with strong NMC recognition.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'PMC', 'WFME', 'ECFMG', 'UNESCO'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge uni-badge--govt">Government</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Kyrgyz National University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">1925</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$4,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Location</span><span className="uni-stat__val">Bishkek</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Founded in 1925, Kyrgyzstan&apos;s oldest university. Its Faculty of Medicine hosts over 6,000 medical students including 300+ international students. NMC-approved with a global English-medium curriculum.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'FAIMER', 'ECFMG', 'WFME', 'UNESCO'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge uni-badge--govt">Government</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Kyrgyz National Agrarian University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">1933</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$3,500</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Location</span><span className="uni-stat__val">Bishkek</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Established in 1933 and awarded National status in 2009. WHO-listed and NMC-recognised, offering an affordable English-medium MBBS programme for international students.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'WDOMS', 'Min. of Education'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge uni-badge--govt">Government</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Kyrgyz State Medical Academy</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">1939</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$4,500</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹25.6 Lacs</span></div>
+              </div>
+              <p className="uni-card__desc">
+                One of the most respected government medical academies in Central Asia, established in 1939. Fully NMC and PMC approved with a comprehensive English-medium clinical training programme.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'PMC', 'ECFMG', 'WFME'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge uni-badge--govt">Government</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Jalal-Abad State University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">1993</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$3,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Location</span><span className="uni-stat__val">Jalal-Abad</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Located in Jalal-Abad city, established in 1993. One of the most affordable government medical universities in Kyrgyzstan, holding broad international recognition including GMC (UK) and FAIMER.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'ECFMG', 'FAIMER', 'WFME', 'GMC UK'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge" style={{ background: 'rgba(99,102,241,.12)', color: '#4338ca' }}>Private</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">International University of Kyrgyzstan</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$4,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹16 Lacs</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Location</span><span className="uni-stat__val">Bishkek</span></div>
+              </div>
+              <p className="uni-card__desc">
+                A leading private institution in Bishkek offering NMC-approved English-medium MBBS. Consistently among the top choices for Indian and Pakistani students due to its low total cost and broad accreditation.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'PMC', 'ECFMG', 'WFME'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge" style={{ background: 'rgba(99,102,241,.12)', color: '#4338ca' }}>Private</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Royal Metropolitan Medical University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">2019</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">5 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$4,500</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Location</span><span className="uni-stat__val">Bishkek</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Established in 2019 with support from the Kyrgyz Government. A modern private medical university in Bishkek offering a 5-year English-medium MBBS with separate gender hostels and Indian mess.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'FAIMER', 'ECFMG', 'UNESCO', 'HEC'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge" style={{ background: 'rgba(99,102,241,.12)', color: '#4338ca' }}>Private</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">International Higher School of Medicine</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">2003</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$5,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹29.7 Lacs</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Founded in 2003, ISM is one of the premier private medical institutions in Kyrgyzstan, hosting over 4,000 international students from India, Pakistan, Nepal, UK, and beyond. Transparent fee structure.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'PMC', 'IAAR', 'AAEPO'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇰🇬</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge" style={{ background: 'rgba(99,102,241,.12)', color: '#4338ca' }}>Private</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">International University of Science and Medicine</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$3,500</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Medium</span><span className="uni-stat__val">English</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Location</span><span className="uni-stat__val">Bishkek</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Offers a 6-year English-medium MD programme with one of the broadest international recognitions in Kyrgyzstan, including GMC (UK), ECFMG (US), and FAIMER alongside WHO and NMC.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'ECFMG', 'WFME', 'FAIMER', 'GMC UK'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+          </div>
         </div>
       </section>
 
@@ -918,13 +1187,13 @@ export default function Home() {
         <div className="container">
           <div className="heading-block">
             <span className="eyebrow">Destinations</span>
-            <h2 className="h-section">Two countries. Eight world-class medical universities.</h2>
+            <h2 className="h-section">Three countries. 17 world-class medical universities.</h2>
             <p className="lede">
-              All partner universities are government-run, WHO-listed, and recognised by the
+              All partner universities are WHO-listed and recognised by the
               Pakistan Medical Commission (PMC), NMC India, and major licensing bodies.
             </p>
           </div>
-          <div className="destinations" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+          <div className="destinations" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
 
             {/* Uzbekistan */}
             <article className="dest dest--uz">
@@ -998,6 +1267,46 @@ export default function Home() {
               </div>
             </article>
 
+            {/* Kyrgyzstan */}
+            <article className="dest dest--kg" style={{ '--dest-accent': '#e8103a' } as React.CSSProperties}>
+              <div className="dest__hero">
+                <div className="dest__flag">
+                  <span style={{ fontSize: 16 }}>🇰🇬</span> Kyrgyzstan
+                </div>
+                <div className="dest__country">Kyrgyzstan</div>
+              </div>
+              <div className="dest__body">
+                <div className="dest__unis">
+                  <div className="dest__uni">
+                    <span>Osh State University</span>
+                    <span>Est. 1992 · 6 Yrs · ~$4,000/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>Kyrgyz National University</span>
+                    <span>Est. 1925 · 6 Yrs · ~$4,000/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>Kyrgyz State Medical Academy</span>
+                    <span>Est. 1939 · 6 Yrs · ~$4,500/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>Jalal-Abad State University</span>
+                    <span>Est. 1993 · 6 Yrs · ~$3,000/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>+ 5 more universities</span>
+                    <span>Private · From $3,500/yr</span>
+                  </div>
+                </div>
+                <div className="dest__cta">
+                  <span className="dest__meta">6-year MBBS · English medium · WHO listed</span>
+                  <a className="dest__link" href="#cta">
+                    Apply now <span className="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
           </div>
 
           {/* Key advantages strip */}
@@ -1007,7 +1316,7 @@ export default function Home() {
               { icon: '✓', label: 'PMC / NMC recognised', sub: 'Eligible for licensing exams' },
               { icon: '✓', label: 'Zero donation fee', sub: 'Government seats only' },
               { icon: '✓', label: 'English medium', sub: 'Full MBBS in English' },
-              { icon: '✓', label: 'Low annual tuition', sub: 'From USD 3,500/year' },
+              { icon: '✓', label: 'Low annual tuition', sub: 'From USD 3,000/year' },
               { icon: '✓', label: 'Safe student cities', sub: 'Large expat communities' },
             ].map((a) => (
               <div key={a.label} className="advantage">
@@ -1043,7 +1352,7 @@ export default function Home() {
             </h2>
             <p>
               We publish our placement numbers every year. No selective truths — real students,
-              real universities, real results.
+              real universities across Uzbekistan, Kazakhstan &amp; Kyrgyzstan.
             </p>
           </div>
           <div className="stats__grid">
@@ -1060,8 +1369,8 @@ export default function Home() {
               <div className="stat__lbl">Visa success rate</div>
             </div>
             <div className="stat">
-              <div className="stat__num">8</div>
-              <div className="stat__lbl">Partner government universities</div>
+              <div className="stat__num">17</div>
+              <div className="stat__lbl">Partner universities across 3 countries</div>
             </div>
             <div className="stat">
               <div className="stat__num">
@@ -1250,12 +1559,12 @@ export default function Home() {
           <div className="footer__grid">
             <div className="footer__brand">
               <a href="#" className="logo">
-                <span className="logo__mark">O</span>
-                <span>Oxford Int&apos;l Edu</span>
+                <Image src="/logo.png" alt="Oxford International Education Group" width={128} height={128} className="logo__img" />
+                <span>Oxford International Educational Group</span>
               </a>
               <p className="footer__tag">
-                Official admissions partner for government medical universities in Uzbekistan and
-                Kazakhstan. Helping students pursue their MBBS dream since 2014.
+                Official admissions partner for medical universities in Uzbekistan, Kazakhstan, and
+                Kyrgyzstan. Helping students pursue their MBBS dream since 2014.
               </p>
               <div className="footer__contact">
                 <span>Address</span>
@@ -1306,9 +1615,10 @@ export default function Home() {
                 {[
                   'Tashkent State Medical Academy',
                   'Samarkand State Medical Univ.',
-                  'Bukhara State Medical Institute',
                   'Kazakh National Medical Univ.',
                   'Astana Medical University',
+                  'Osh State University',
+                  'Kyrgyz State Medical Academy',
                 ].map((u) => (
                   <li key={u}><a href="#">{u}</a></li>
                 ))}
@@ -1341,12 +1651,85 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* WhatsApp float */}
-      <a className="wa" href="https://wa.me/919048968415" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.5zM12 22c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.5-1.5-5.4C2.1 6.4 6.5 2 12 2s9.9 4.4 9.9 9.9S17.5 22 12 22zm5.4-7.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6c.1-.1.3-.4.4-.6s.2-.3.3-.5.1-.4 0-.5-.7-1.7-1-2.3c-.3-.6-.6-.5-.8-.5h-.6c-.2 0-.5.1-.8.4s-1.1 1.1-1.1 2.7c0 1.6 1.2 3.1 1.3 3.3.2.2 2.3 3.6 5.6 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3z" />
-        </svg>
-      </a>
+      {/* ===== FIXED SOCIAL SIDEBAR ===== */}
+      <div className="social-bar">
+
+        {/* WhatsApp */}
+        <div className="social-bar__item">
+          <button
+            className="social-bar__btn social-bar__btn--wa"
+            aria-label="WhatsApp"
+            onClick={() => setWaOpen(o => !o)}
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.5zM12 22c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.5-1.5-5.4C2.1 6.4 6.5 2 12 2s9.9 4.4 9.9 9.9S17.5 22 12 22z"/>
+            </svg>
+          </button>
+          {waOpen && (
+            <>
+              <div className="wa-overlay" onClick={() => setWaOpen(false)} />
+              <div className="wa-popup">
+                <p className="wa-popup__title">Chat on WhatsApp</p>
+                <a
+                  href="https://wa.me/919048968415"
+                  className="wa-popup__num"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setWaOpen(false)}
+                >
+                  <span className="wa-popup__flag">🇮🇳</span>
+                  <div>
+                    <div className="wa-popup__label">India</div>
+                    <div>+91 90489 68415</div>
+                  </div>
+                </a>
+                <a
+                  href="https://wa.me/996223571108"
+                  className="wa-popup__num"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setWaOpen(false)}
+                >
+                  <span className="wa-popup__flag">🇰🇿</span>
+                  <div>
+                    <div className="wa-popup__label">Kazakhstan</div>
+                    <div>+996 22 357 1108</div>
+                  </div>
+                </a>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Facebook */}
+        <a
+          className="social-bar__btn social-bar__btn--fb"
+          href="https://www.facebook.com/share/1CNimFiagN/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+
+        {/* Instagram */}
+        <a
+          className="social-bar__btn social-bar__btn--ig"
+          href="https://www.instagram.com/oxford_international_education?utm_source=qr&igsh=MXJsZ3E0bHMxMnpxag=="
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}>
+            <rect x={3} y={3} width={18} height={18} rx={5}/>
+            <circle cx={12} cy={12} r={4}/>
+            <circle cx={17.5} cy={6.5} r={1} fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+
+      </div>
     </>
   );
 }
