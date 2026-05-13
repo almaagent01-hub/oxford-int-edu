@@ -1560,7 +1560,6 @@ export default function Home() {
             <div className="footer__brand">
               <a href="#" className="logo">
                 <Image src="/logo.png" alt="Oxford International Education Group" width={128} height={128} className="logo__img" />
-                <span>Oxford International Educational Group</span>
               </a>
               <p className="footer__tag">
                 Official admissions partner for medical universities in Uzbekistan, Kazakhstan, and
@@ -1581,21 +1580,21 @@ export default function Home() {
                 </a>
               </div>
               <div className="footer__social" aria-label="Social">
-                <a href="#" aria-label="Instagram">
+                <a href="https://www.instagram.com/oxford_international_education?utm_source=qr&igsh=MXJsZ3E0bHMxMnpxag==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}>
                     <rect x={3} y={3} width={18} height={18} rx={5} />
                     <circle cx={12} cy={12} r={4} />
                     <circle cx={17.5} cy={6.5} r={1} fill="currentColor" />
                   </svg>
                 </a>
-                <a href="#" aria-label="Facebook">
+                <a href="https://www.facebook.com/share/1CNimFiagN/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                   </svg>
                 </a>
-                <a href="#" aria-label="YouTube">
+                <a href="https://wa.me/919048968415" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                   <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M22 8.2c-.2-1.3-.9-2.4-2.2-2.6C17.4 5.2 12 5.2 12 5.2s-5.4 0-7.8.4C2.9 5.8 2.2 6.9 2 8.2 1.6 10.6 1.6 12 1.6 12s0 1.4.4 3.8c.2 1.3.9 2.4 2.2 2.6 2.4.4 7.8.4 7.8.4s5.4 0 7.8-.4c1.3-.2 2-1.3 2.2-2.6.4-2.4.4-3.8.4-3.8s0-1.4-.4-3.8zM10 15.4V8.6L15.8 12 10 15.4z" />
+                    <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.5zM12 22c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.5-1.5-5.4C2.1 6.4 6.5 2 12 2s9.9 4.4 9.9 9.9S17.5 22 12 22z"/>
                   </svg>
                 </a>
               </div>
