@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, Children } from 'react';
 import Image from 'next/image';
 
 const UZBEKISTAN_UNIS = [
@@ -26,6 +26,29 @@ const KYRGYZSTAN_UNIS = [
   'International Higher School of Medicine',
   'International University of Science and Medicine',
 ];
+
+function CollapseGrid({ children, initialCount = 3 }: { children: React.ReactNode; initialCount?: number }) {
+  const [expanded, setExpanded] = useState(false);
+  const items = Children.toArray(children);
+  const visible = expanded ? items : items.slice(0, initialCount);
+  const hidden = items.length - initialCount;
+  return (
+    <>
+      <div className="uni-grid" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+        {visible}
+      </div>
+      {items.length > initialCount && (
+        <div className="show-more-wrap">
+          <button className="btn btn--ghost show-more-btn" onClick={() => setExpanded(e => !e)}>
+            {expanded
+              ? '↑ Show fewer'
+              : `Show ${hidden} more ${hidden === 1 ? 'university' : 'universities'} ↓`}
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
 
 function ContactSection() {
   const [form, setForm] = useState({
@@ -515,7 +538,7 @@ export default function Home() {
               <div className="uni-country-sub">3 Government Medical Universities · English Medium · From $3,500/yr</div>
             </div>
           </div>
-          <div className="uni-grid" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+          <CollapseGrid>
 
             <article className="uni-card">
               <div className="uni-card__header">
@@ -601,7 +624,7 @@ export default function Home() {
               </a>
             </article>
 
-          </div>
+          </CollapseGrid>
 
           {/* ── Kazakhstan ── */}
           <div className="uni-country-head" style={{ marginTop: 56 }}>
@@ -611,7 +634,7 @@ export default function Home() {
               <div className="uni-country-sub">5 Government Medical Universities · English Medium · From $4,200/yr</div>
             </div>
           </div>
-          <div className="uni-grid" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+          <CollapseGrid>
 
             <article className="uni-card uni-card--featured">
               <div className="uni-card__header">
@@ -756,7 +779,7 @@ export default function Home() {
               </a>
             </article>
 
-          </div>
+          </CollapseGrid>
 
           {/* ── Kyrgyzstan ── */}
           <div className="uni-country-head" style={{ marginTop: 56 }}>
@@ -766,7 +789,7 @@ export default function Home() {
               <div className="uni-country-sub">9 Medical Universities · English Medium · From $3,000/yr</div>
             </div>
           </div>
-          <div className="uni-grid" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+          <CollapseGrid>
 
             <article className="uni-card uni-card--featured">
               <div className="uni-card__header">
@@ -1011,7 +1034,7 @@ export default function Home() {
               </a>
             </article>
 
-          </div>
+          </CollapseGrid>
         </div>
       </section>
 
