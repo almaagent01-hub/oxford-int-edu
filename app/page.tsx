@@ -1601,6 +1601,9 @@ export default function Home() {
                 <a href="mailto:info@oxfordinternationaleducationalgroup.com">
                   info@oxfordinternationaleducationalgroup.com
                 </a>
+                <a href="https://www.oxfordinternationaleducationalgroup.com" target="_blank" rel="noopener noreferrer">
+                  www.oxfordinternationaleducationalgroup.com
+                </a>
               </div>
               <div className="footer__social" aria-label="Social">
                 <a href="https://www.instagram.com/oxford_international_education?utm_source=qr&igsh=MXJsZ3E0bHMxMnpxag==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
