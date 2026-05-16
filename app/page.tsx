@@ -26,6 +26,13 @@ const KYRGYZSTAN_UNIS = [
   'International Higher School of Medicine',
   'International University of Science and Medicine',
 ];
+const GEORGIA_UNIS = [
+  'Tbilisi State Medical University',
+  'David Tvildiani Medical University',
+  'Georgian National University SEU',
+  'ALTE University',
+  'Caucasus University',
+];
 
 function CollapseGrid({ children, initialCount = 3 }: { children: React.ReactNode; initialCount?: number }) {
   const [expanded, setExpanded] = useState(false);
@@ -63,8 +70,10 @@ function ContactSection() {
     ? KAZAKHSTAN_UNIS
     : form.country === 'Kyrgyzstan'
     ? KYRGYZSTAN_UNIS
+    : form.country === 'Georgia'
+    ? GEORGIA_UNIS
     : form.country === 'Multiple'
-    ? [...UZBEKISTAN_UNIS, ...KAZAKHSTAN_UNIS, ...KYRGYZSTAN_UNIS]
+    ? [...UZBEKISTAN_UNIS, ...KAZAKHSTAN_UNIS, ...KYRGYZSTAN_UNIS, ...GEORGIA_UNIS]
     : [];
 
   const validate = () => {
@@ -239,6 +248,7 @@ function ContactSection() {
                       <option>Uzbekistan</option>
                       <option>Kazakhstan</option>
                       <option>Kyrgyzstan</option>
+                      <option>Georgia</option>
                       <option>Multiple</option>
                     </select>
                   </div>
@@ -523,9 +533,9 @@ export default function Home() {
         <div className="container">
           <div className="heading-block heading-block--center">
             <span className="eyebrow">Our Partner Universities</span>
-            <h2 className="h-section">17 Medical Universities.<br/>Three Countries. One Trusted Partner.</h2>
+            <h2 className="h-section">22 Medical Universities.<br/>Four Countries. One Trusted Partner.</h2>
             <p className="lede" style={{ textAlign: 'center' }}>
-              Every university below is government-run, WHO-listed, and recognised by NMC (India) &amp; PMC (Pakistan).
+              Every university below is WHO-listed and recognised by NMC (India) &amp; PMC (Pakistan).
               All MBBS programmes are taught in English with zero donation fees.
             </p>
           </div>
@@ -1026,6 +1036,153 @@ export default function Home() {
               </p>
               <div className="uni-card__accreditations">
                 {['WHO', 'NMC', 'ECFMG', 'WFME', 'FAIMER', 'GMC UK'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+          </CollapseGrid>
+
+          {/* ── Georgia ── */}
+          <div className="uni-country-head" style={{ marginTop: 56 }}>
+            <span className="uni-flag">🇬🇪</span>
+            <div>
+              <div className="uni-country-name">Georgia</div>
+              <div className="uni-country-sub">5 Medical Universities · English Medium · From $5,000/yr</div>
+            </div>
+          </div>
+          <CollapseGrid>
+
+            <article className="uni-card uni-card--featured">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇬🇪</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge uni-badge--govt">Government</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Tbilisi State Medical University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">1918</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$8,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹40 Lacs</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Georgia&apos;s oldest and most prestigious government medical university, founded in 1918. Hosts students from 70+ countries. Recognised globally by NMC, WHO, WFME, ECFMG, and FAIMER.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'PMC', 'ECFMG', 'FAIMER', 'WFME'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇬🇪</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge" style={{ background: 'rgba(99,102,241,.12)', color: '#4338ca' }}>Private</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">David Tvildiani Medical University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">1989</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$6,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹32 Lacs</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Established in 1989, elevated to full university in 2011. Hostel fees included in tuition. Continuously listed in WDOMS since 1995. Recognised by NMC, WHO, FAIMER, and AMEE.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'FAIMER', 'WFME', 'AMEE'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇬🇪</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge" style={{ background: 'rgba(99,102,241,.12)', color: '#4338ca' }}>Private</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Georgian National University SEU</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">2001</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$5,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹25 Lacs</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Private institution founded in 2001 in Tbilisi. MD degree recognised for USMLE (USA), PLAB (UK), and MCCQE (Canada) licensing exams. Listed in WDOMS and accredited by NCEQE Georgia.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'WFME', 'ECFMG', 'FAIMER'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇬🇪</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge" style={{ background: 'rgba(99,102,241,.12)', color: '#4338ca' }}>Private</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">ALTE University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">2002</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$5,500</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹27 Lacs</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Founded in 2002 in Tbilisi. School of Medicine listed in WDOMS with programmes accredited by NMC, WFME, and ENQA. Delivers strong FMGE outcomes for Indian graduates.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'WFME', 'ENQA', 'NCEQE'].map(a => (
+                  <span key={a} className="accr-badge">{a}</span>
+                ))}
+              </div>
+              <a href="#cta" className="service__link" style={{ marginTop: 'auto', paddingTop: 16 }}>
+                Apply Now <span className="arrow">→</span>
+              </a>
+            </article>
+
+            <article className="uni-card">
+              <div className="uni-card__header">
+                <div className="uni-card__flag">🇬🇪</div>
+                <div className="uni-card__meta-row">
+                  <span className="uni-badge" style={{ background: 'rgba(99,102,241,.12)', color: '#4338ca' }}>Private</span>
+                </div>
+              </div>
+              <h3 className="uni-card__name">Caucasus University</h3>
+              <div className="uni-card__stats">
+                <div className="uni-stat"><span className="uni-stat__label">Established</span><span className="uni-stat__val">1995</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Duration</span><span className="uni-stat__val">6 Years</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Annual Tuition</span><span className="uni-stat__val">~$6,000</span></div>
+                <div className="uni-stat"><span className="uni-stat__label">Total Cost</span><span className="uni-stat__val">~₹35 Lacs</span></div>
+              </div>
+              <p className="uni-card__desc">
+                Faculty of Medicine established 1995. 6,500+ students from 63 countries including 2,850 international medical students. Six-year MD programme (360 ECTS credits) fully in English.
+              </p>
+              <div className="uni-card__accreditations">
+                {['WHO', 'NMC', 'WFME', 'ECFMG'].map(a => (
                   <span key={a} className="accr-badge">{a}</span>
                 ))}
               </div>
