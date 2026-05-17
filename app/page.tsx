@@ -435,8 +435,8 @@ export default function Home() {
               <em>Our proven path.</em>
             </h1>
             <p className="lede">
-              We guide students into government medical universities in Uzbekistan and Kazakhstan —
-              WHO-listed, MCI / NMC recognised, zero donation fees, and taught in English.
+              We place students in WHO-listed medical universities across Uzbekistan, Kazakhstan,
+              Kyrgyzstan, and Georgia — NMC / PMC recognised, zero donation fees, taught in English.
             </p>
             <div className="hero__ctas">
               <a href="#cta" className="btn btn--primary">
@@ -452,7 +452,7 @@ export default function Home() {
                 <span className="trust__lbl">Students enrolled</span>
               </div>
               <div className="trust__stat">
-                <span className="trust__num">17</span>
+                <span className="trust__num">22</span>
                 <span className="trust__lbl">Partner universities</span>
               </div>
               <div className="trust__stat">
@@ -474,7 +474,7 @@ export default function Home() {
                 <div className="map-card__dot" title="Live" />
               </div>
 
-              <svg className="map-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+              <svg className="map-svg" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" style={{ flex: 'none', height: 90 }}>
                 <defs>
                   <radialGradient id="pinGlow" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stopColor="#E8A020" stopOpacity={0.55} />
@@ -482,51 +482,93 @@ export default function Home() {
                   </radialGradient>
                 </defs>
                 <g fill="#D6D2C5" ref={dotsRef} id="dots" />
+                {/* Georgia pin */}
+                <circle cx={170} cy={62} r={12} fill="url(#pinGlow)" />
+                <circle cx={170} cy={62} r={4} fill="#c0392b" stroke="#fff" strokeWidth={1.5} />
                 {/* Uzbekistan pin */}
-                <circle cx={200} cy={68} r={14} fill="url(#pinGlow)" />
-                <circle cx={200} cy={68} r={4} fill="#E8A020" stroke="#fff" strokeWidth={1.5} />
+                <circle cx={200} cy={75} r={14} fill="url(#pinGlow)" />
+                <circle cx={200} cy={75} r={4} fill="#E8A020" stroke="#fff" strokeWidth={1.5} />
                 {/* Kazakhstan pin */}
-                <circle cx={210} cy={52} r={14} fill="url(#pinGlow)" />
-                <circle cx={210} cy={52} r={4} fill="#0F2557" stroke="#fff" strokeWidth={1.5} />
-                {/* Labels */}
-                <text x={218} y={56} fontSize="7" fill="#0F2557" fontWeight="600">Kazakhstan</text>
-                <text x={208} y={72} fontSize="7" fill="#8C5A00" fontWeight="600">Uzbekistan</text>
+                <circle cx={215} cy={58} r={14} fill="url(#pinGlow)" />
+                <circle cx={215} cy={58} r={4} fill="#0F2557" stroke="#fff" strokeWidth={1.5} />
+                {/* Kyrgyzstan pin */}
+                <circle cx={235} cy={68} r={12} fill="url(#pinGlow)" />
+                <circle cx={235} cy={68} r={4} fill="#e8103a" stroke="#fff" strokeWidth={1.5} />
+                {/* Flag image labels */}
+                <image href="/georgia.png" x={158} y={38} width="24" height="16" preserveAspectRatio="xMidYMid meet" style={{ borderRadius: 2 }} />
+                <text x={170} y={61} fontSize="5.5" fill="#c0392b" fontWeight="700" textAnchor="middle">Georgia</text>
+                <image href="/kazakhistan.png" x={203} y={34} width="24" height="16" preserveAspectRatio="xMidYMid meet" />
+                <text x={215} y={55} fontSize="5.5" fill="#0F2557" fontWeight="700" textAnchor="middle">Kazakhstan</text>
+                <image href="/uzbekistan.png" x={188} y={80} width="24" height="16" preserveAspectRatio="xMidYMid meet" />
+                <text x={200} y={101} fontSize="5.5" fill="#8C5A00" fontWeight="700" textAnchor="middle">Uzbekistan</text>
+                <image href="/krgyestan.png" x={223} y={54} width="24" height="16" preserveAspectRatio="xMidYMid meet" />
+                <text x={235} y={81} fontSize="5.5" fill="#e8103a" fontWeight="700" textAnchor="middle">Kyrgyzstan</text>
               </svg>
 
-              <div className="destination-row">
-                <div className="flag" style={{ background: 'linear-gradient(135deg,#1a6b3c,#3da55c)', position: 'relative' }}>
-                  <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10 }}>🇺🇿</span>
-                </div>
-                <div className="destination-row__txt">
-                  <span className="destination-row__country">Tashkent State Medical Academy</span>
-                  <span className="destination-row__count">MBBS · 6 Years · Govt. University</span>
-                </div>
-                <span className="destination-row__match">Top Pick</span>
-              </div>
-              <div className="destination-row">
-                <div className="flag" style={{ background: 'linear-gradient(135deg,#009fca,#0a6fa8)', position: 'relative' }}>
-                  <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10 }}>🇰🇿</span>
-                </div>
-                <div className="destination-row__txt">
-                  <span className="destination-row__country">Kazakh National Medical University</span>
-                  <span className="destination-row__count">MBBS · 5 Years · Asfendiyarov</span>
-                </div>
-                <span className="destination-row__match">WHO Listed</span>
-              </div>
-              <div className="destination-row">
-                <div className="flag" style={{ background: 'linear-gradient(135deg,#1a6b3c,#3da55c)', position: 'relative' }}>
-                  <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10 }}>🇺🇿</span>
-                </div>
-                <div className="destination-row__txt">
-                  <span className="destination-row__country">Samarkand State Medical University</span>
-                  <span className="destination-row__count">MBBS · 6 Years · No Donation</span>
-                </div>
-                <span className="destination-row__match">MCI Listed</span>
+              <div style={{ overflowY: 'auto', flex: 1, paddingRight: 2 }}>
+                {[
+                  { logo: '/uzbekistan.png', name: 'Tashkent State Medical Academy', sub: 'MBBS · 6 Yrs · Govt', badge: 'Top Pick' },
+                  { logo: '/uzbekistan.png', name: 'Samarkand State Medical University', sub: 'MBBS · 6 Yrs · Govt', badge: 'NMC Listed' },
+                  { logo: '/uzbekistan.png', name: 'Bukhara State Medical Institute', sub: 'MBBS · 6 Yrs · Govt', badge: 'WHO Listed' },
+                  { logo: '/kazakhistan.png', name: 'Kazakh National Medical University', sub: 'MBBS · 6 Yrs · QS Ranked', badge: 'QS Ranked' },
+                  { logo: '/kazakhistan.png', name: 'Al-Farabi Kazakh National University', sub: 'MBBS · 6 Yrs · Govt', badge: 'NMC Listed' },
+                  { logo: '/kazakhistan.png', name: 'Kazakh-Russian Medical University', sub: 'MBBS · 6 Yrs · Govt', badge: 'NMC Listed' },
+                  { logo: '/kazakhistan.png', name: 'Semey Medical University', sub: 'MBBS · 6 Yrs · Govt', badge: 'WHO Listed' },
+                  { logo: '/kazakhistan.png', name: 'Astana Medical University', sub: 'MBBS · 5–6 Yrs · Govt', badge: 'NMC Listed' },
+                  { logo: '/krgyestan.png', name: 'Osh State University', sub: 'MBBS · 6 Yrs · Govt', badge: 'NMC Listed' },
+                  { logo: '/krgyestan.png', name: 'Kyrgyz National University', sub: 'MBBS · 6 Yrs · Govt', badge: 'WHO Listed' },
+                  { logo: '/krgyestan.png', name: 'Kyrgyz National Agrarian University', sub: 'MBBS · 6 Yrs · Govt', badge: 'NMC Listed' },
+                  { logo: '/krgyestan.png', name: 'Kyrgyz State Medical Academy', sub: 'MBBS · 6 Yrs · Govt', badge: 'NMC Listed' },
+                  { logo: '/krgyestan.png', name: 'Jalal-Abad State University', sub: 'MBBS · 6 Yrs · Govt', badge: 'WHO Listed' },
+                  { logo: '/krgyestan.png', name: 'International University of Kyrgyzstan', sub: 'MBBS · 6 Yrs · Private', badge: 'NMC Listed' },
+                  { logo: '/krgyestan.png', name: 'Royal Metropolitan Medical University', sub: 'MBBS · 5 Yrs · Private', badge: 'NMC Listed' },
+                  { logo: '/krgyestan.png', name: 'International Higher School of Medicine', sub: 'MBBS · 6 Yrs · Private', badge: 'NMC Listed' },
+                  { logo: '/krgyestan.png', name: 'International University of Science and Medicine', sub: 'MBBS · 6 Yrs · Private', badge: 'WHO Listed' },
+                  { logo: '/georgia.png', name: 'Tbilisi State Medical University', sub: 'MBBS · 6 Yrs · Govt', badge: 'Top Pick' },
+                  { logo: '/georgia.png', name: 'David Tvildiani Medical University', sub: 'MBBS · 6 Yrs · Private', badge: 'NMC Listed' },
+                  { logo: '/georgia.png', name: 'Georgian National University SEU', sub: 'MBBS · 6 Yrs · Private', badge: 'NMC Listed' },
+                  { logo: '/georgia.png', name: 'ALTE University', sub: 'MBBS · 6 Yrs · Private', badge: 'NMC Listed' },
+                  { logo: '/georgia.png', name: 'Caucasus University', sub: 'MBBS · 6 Yrs · Private', badge: 'WHO Listed' },
+                ].map((u) => (
+                  <div key={u.name} className="destination-row">
+                    <Image src={u.logo} alt="" width={36} height={36} style={{ width: 36, height: 36, objectFit: 'contain', flexShrink: 0 }} />
+                    <div className="destination-row__txt">
+                      <span className="destination-row__country">{u.name}</span>
+                      <span className="destination-row__count">{u.sub}</span>
+                    </div>
+                    <span className="destination-row__match">{u.badge}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ===== COUNTRY FLAGS STRIP ===== */}
+      <div style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', padding: '20px 0' }}>
+        <div className="container">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
+            {[
+              { logo: '/uzbekistan.png', name: 'Uzbekistan', count: '3 Universities', color: '#1a6b3c' },
+              { logo: '/kazakhistan.png', name: 'Kazakhstan', count: '5 Universities', color: '#009fca' },
+              { logo: '/krgyestan.png', name: 'Kyrgyzstan', count: '9 Universities', color: '#c0392b' },
+              { logo: '/georgia.png', name: 'Georgia', count: '5 Universities', color: '#b5121b' },
+            ].map((c, i) => (
+              <div key={c.name} style={{ display: 'contents' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 20px', background: '#fff', border: '1px solid var(--line)', borderRadius: 999, boxShadow: 'var(--shadow-sm)' }}>
+                  <Image src={c.logo} alt={c.name} width={40} height={28} style={{ borderRadius: 4, objectFit: 'cover' }} />
+                  <div style={{ lineHeight: 1.3 }}>
+                    <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--ink)' }}>{c.name}</div>
+                    <div style={{ fontSize: 12, color: c.color, fontWeight: 600 }}>{c.count}</div>
+                  </div>
+                </div>
+                {i < 3 && <span style={{ color: '#ccc', fontSize: 20, fontWeight: 300, userSelect: 'none' }}>·</span>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* ===== UNIVERSITIES ===== */}
       <section className="section section--alt" id="universities">
@@ -542,7 +584,7 @@ export default function Home() {
 
           {/* ── Uzbekistan ── */}
           <div className="uni-country-head">
-            <span className="uni-flag">🇺🇿</span>
+            <Image src="/uzbekistan.png" alt="Uzbekistan" width={48} height={48} style={{ width: 48, height: 48, objectFit: 'contain' }} />
             <div>
               <div className="uni-country-name">Uzbekistan</div>
               <div className="uni-country-sub">3 Government Medical Universities · English Medium · From $3,500/yr</div>
@@ -638,7 +680,7 @@ export default function Home() {
 
           {/* ── Kazakhstan ── */}
           <div className="uni-country-head" style={{ marginTop: 56 }}>
-            <span className="uni-flag">🇰🇿</span>
+            <Image src="/kazakhistan.png" alt="Kazakhstan" width={48} height={48} style={{ width: 48, height: 48, objectFit: 'contain' }} />
             <div>
               <div className="uni-country-name">Kazakhstan</div>
               <div className="uni-country-sub">5 Government Medical Universities · English Medium · From $4,200/yr</div>
@@ -793,7 +835,7 @@ export default function Home() {
 
           {/* ── Kyrgyzstan ── */}
           <div className="uni-country-head" style={{ marginTop: 56 }}>
-            <span className="uni-flag">🇰🇬</span>
+            <Image src="/krgyestan.png" alt="Kyrgyzstan" width={48} height={48} style={{ width: 48, height: 48, objectFit: 'contain' }} />
             <div>
               <div className="uni-country-name">Kyrgyzstan</div>
               <div className="uni-country-sub">9 Medical Universities · English Medium · From $3,000/yr</div>
@@ -1048,7 +1090,7 @@ export default function Home() {
 
           {/* ── Georgia ── */}
           <div className="uni-country-head" style={{ marginTop: 56 }}>
-            <span className="uni-flag">🇬🇪</span>
+            <Image src="/georgia.png" alt="Georgia" width={48} height={48} style={{ width: 48, height: 48, objectFit: 'contain' }} />
             <div>
               <div className="uni-country-name">Georgia</div>
               <div className="uni-country-sub">5 Medical Universities · English Medium · From $5,000/yr</div>
@@ -1367,19 +1409,19 @@ export default function Home() {
         <div className="container">
           <div className="heading-block">
             <span className="eyebrow">Destinations</span>
-            <h2 className="h-section">Three countries. 17 world-class medical universities.</h2>
+            <h2 className="h-section">Four countries. 22 world-class medical universities.</h2>
             <p className="lede">
               All partner universities are WHO-listed and recognised by the
               Pakistan Medical Commission (PMC), NMC India, and major licensing bodies.
             </p>
           </div>
-          <div className="destinations" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+          <div className="destinations" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
 
             {/* Uzbekistan */}
             <article className="dest dest--uz">
               <div className="dest__hero">
                 <div className="dest__flag">
-                  <span style={{ fontSize: 16 }}>🇺🇿</span> Uzbekistan
+                  <Image src="/uzbekistan.png" alt="Uzbekistan" width={22} height={16} style={{ width: 22, height: 22, objectFit: 'contain' }} /> Uzbekistan
                 </div>
                 <div className="dest__country">Uzbekistan</div>
               </div>
@@ -1411,7 +1453,7 @@ export default function Home() {
             <article className="dest dest--kz">
               <div className="dest__hero">
                 <div className="dest__flag">
-                  <span style={{ fontSize: 16 }}>🇰🇿</span> Kazakhstan
+                  <Image src="/kazakhistan.png" alt="Kazakhstan" width={22} height={16} style={{ width: 22, height: 22, objectFit: 'contain' }} /> Kazakhstan
                 </div>
                 <div className="dest__country">Kazakhstan</div>
               </div>
@@ -1451,7 +1493,7 @@ export default function Home() {
             <article className="dest dest--kg" style={{ '--dest-accent': '#e8103a' } as React.CSSProperties}>
               <div className="dest__hero">
                 <div className="dest__flag">
-                  <span style={{ fontSize: 16 }}>🇰🇬</span> Kyrgyzstan
+                  <Image src="/krgyestan.png" alt="Kyrgyzstan" width={22} height={16} style={{ width: 22, height: 22, objectFit: 'contain' }} /> Kyrgyzstan
                 </div>
                 <div className="dest__country">Kyrgyzstan</div>
               </div>
@@ -1474,12 +1516,68 @@ export default function Home() {
                     <span>Est. 1993 · 6 Yrs · ~$3,000/yr</span>
                   </div>
                   <div className="dest__uni">
-                    <span>+ 5 more universities</span>
-                    <span>Private · From $3,500/yr</span>
+                    <span>International University of Kyrgyzstan</span>
+                    <span>Private · 6 Yrs · ~$4,000/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>Royal Metropolitan Medical University</span>
+                    <span>Private · 5 Yrs · ~$4,500/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>International Higher School of Medicine</span>
+                    <span>Private · 6 Yrs · ~$5,000/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>International University of Science and Medicine</span>
+                    <span>Private · 6 Yrs · ~$3,500/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>Kyrgyz National Agrarian University</span>
+                    <span>Govt · 6 Yrs · ~$3,500/yr</span>
                   </div>
                 </div>
                 <div className="dest__cta">
                   <span className="dest__meta">6-year MBBS · English medium · WHO listed</span>
+                  <a className="dest__link" href="#cta">
+                    Apply now <span className="arrow">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            {/* Georgia */}
+            <article className="dest dest--ge" style={{ '--dest-accent': '#b5121b' } as React.CSSProperties}>
+              <div className="dest__hero">
+                <div className="dest__flag">
+                  <Image src="/georgia.png" alt="Georgia" width={22} height={16} style={{ width: 22, height: 22, objectFit: 'contain' }} /> Georgia
+                </div>
+                <div className="dest__country">Georgia</div>
+              </div>
+              <div className="dest__body">
+                <div className="dest__unis">
+                  <div className="dest__uni">
+                    <span>Tbilisi State Medical University</span>
+                    <span>Est. 1918 · Govt · ~$8,000/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>David Tvildiani Medical University</span>
+                    <span>Est. 1989 · Private · ~$6,000/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>Georgian National University SEU</span>
+                    <span>Est. 2001 · Private · ~$5,000/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>ALTE University</span>
+                    <span>Est. 2002 · Private · ~$5,500/yr</span>
+                  </div>
+                  <div className="dest__uni">
+                    <span>Caucasus University</span>
+                    <span>Est. 1995 · Private · ~$6,000/yr</span>
+                  </div>
+                </div>
+                <div className="dest__cta">
+                  <span className="dest__meta">6-year MBBS · English medium · NMC listed</span>
                   <a className="dest__link" href="#cta">
                     Apply now <span className="arrow">→</span>
                   </a>
@@ -1492,7 +1590,7 @@ export default function Home() {
           {/* Key advantages strip */}
           <div className="advantages">
             {[
-              { icon: '✓', label: 'WHO listed', sub: 'All 8 universities' },
+              { icon: '✓', label: 'WHO listed', sub: 'All 22 universities' },
               { icon: '✓', label: 'PMC / NMC recognised', sub: 'Eligible for licensing exams' },
               { icon: '✓', label: 'Zero donation fee', sub: 'Government seats only' },
               { icon: '✓', label: 'English medium', sub: 'Full MBBS in English' },
@@ -1532,7 +1630,7 @@ export default function Home() {
             </h2>
             <p>
               We publish our placement numbers every year. No selective truths — real students,
-              real universities across Uzbekistan, Kazakhstan &amp; Kyrgyzstan.
+              real universities across Uzbekistan, Kazakhstan, Kyrgyzstan &amp; Georgia.
             </p>
           </div>
           <div className="stats__grid">
